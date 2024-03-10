@@ -67,7 +67,6 @@ def function_that_expires_the_cache():
 ```
 
 ### Example
-Integrate Flask Redis Caching with your Flask routes to cache the results of route handlers:
 ```python
 from time import sleep
 from redis_caching import RedisCaching
