@@ -1,1 +1,1 @@
-from caching import RedisCaching
+from .caching import RedisCaching
