@@ -10,16 +10,19 @@ class RedisCaching:
     RedisCaching provides caching functionalities using Redis for storing and retrieving cached values.
     """
     
-    def __init__(self, log: bool = True, **kwargs):
+    def __init__(self, log: bool = True, pre_ping: bool = False, **kwargs):
         self.log = log
 
         self._redis_client = redis.Redis(**kwargs)
 
         self._log("The logging is currently on. If you wish to turn it off, simply include log=False as an argument in the __init__ function.")
 
-        self._pre_ping()
+        if pre_ping is True:
+            self._pre_ping()
 
     def _pre_ping(self) -> None:
+        self._log("The pre ping is currently on. If you wish to turn it off, simply include pre_ping=False as an argument in the __init__ function.")
+
         self._log("A ping was sent to the Redis server.")
 
         self._redis_client.ping()
